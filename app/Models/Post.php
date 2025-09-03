@@ -1,12 +1,15 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Post extends Model
+final class Post extends Model
 {
+    /** @use HasFactory<\Database\Factories\PostFactory> */
     use HasFactory;
 
     protected $fillable = [
@@ -15,7 +18,7 @@ class Post extends Model
         'body',
     ];
 
-    protected function casts()
+    protected function casts(): array
     {
         return [
             'uuid' => 'string',
